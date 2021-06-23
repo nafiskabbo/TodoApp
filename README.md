@@ -2,15 +2,15 @@
 An interactive TODO app using unidirectional data flow in compose which has a stateful UI that displays an interactive, editable, TODO list.
 
 # We are using
-**Jetpack Compose**
+* **Jetpack Compose**
 
-**Unidirectional data flow**
+* **Unidirectional data flow**
 
-**State and events in a UI**
+* **State and events in a UI**
 
-**Architecture Component's ViewModel and LiveData in Compose to manage state**
+* **Architecture Component's ViewModel and LiveData in Compose to manage state**
 
-**Room Database**
+* **Room Database**
 
 
 # Jetpack Compose Key Notes
