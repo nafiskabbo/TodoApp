@@ -1,0 +1,130 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.kabbodev.todo"
+        minSdk 23
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+}
+
+dependencies {
+    // Kotlin
+    def ktx_core = "1.5.0"
+    def coroutines = '1.5.0'
+    // UI
+    def app_compat = "1.3.0"
+    def material = "1.3.0"
+    // Compose
+    def activity_compose = "1.3.0-beta02"
+    def nav_compose = "2.4.0-alpha03"
+    def view_model_compose = "1.0.0-alpha07"
+    // ViewModel and Live Data
+    def lifecycle_version = "2.3.1"
+    def arch_version = "2.1.0"
+    def room_version = "2.3.0"
+    // Coil
+    def coil = '1.2.2'
+    def accompanist = '0.12.0'
+    def timber = "4.7.1"
+    // Testing
+    def jUnit = "4.13.2"
+    def jUnit_test = "1.1.2"
+    def espresso_core = "3.3.0"
+
+
+    // Kotlin
+    implementation "androidx.core:core-ktx:$ktx_core"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines" /* coroutines support for firebase operations */
+
+    // UI
+    implementation "androidx.appcompat:appcompat:$app_compat"
+    implementation "com.google.android.material:material:$material"
+
+    // Compose
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation "androidx.activity:activity-compose:$activity_compose"
+    implementation "androidx.navigation:navigation-compose:$nav_compose"
+
+    // ViewModel and Live Data
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$view_model_compose"
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+
+    // Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+
+//    // Coil
+//    implementation("io.coil-kt:coil:$coil")
+//
+//    // Accompanist
+//    implementation "com.google.accompanist:accompanist-coil:$accompanist"
+//    implementation "com.google.accompanist:accompanist-pager:$accompanist"
+//    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist"
+//    implementation "com.google.accompanist:accompanist-placeholder-material:$accompanist"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$timber"
+
+    // Testing
+    testImplementation "junit:junit:$jUnit"
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+    androidTestImplementation "androidx.test.ext:junit:$jUnit_test"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+}
