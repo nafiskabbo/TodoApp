@@ -14,21 +14,23 @@ An interactive TODO app using unidirectional data flow in compose which has a st
 
 
 # Jetpack Compose Key Notes
-**What is state in Jetpack Compose?**
+* **What is state in Jetpack Compose?**
 
 **Answer:** **State** in an application is **any value that can change** over time.
 
 For example it may be a value stored in a Room database, a variable on a class, or even the current value read from an accelerometer.
 
 
-**What is an Observable?**
+
+* **What is an Observable?**
 
 **Answer:** An **observable** is any state object that provides a way for anyone to listen for changes to that state.
 
 For example, *LiveData*, *StateFlow*, *Flow*, and *Observable* are all observable.
 
 
-**What is Unidirectional data flow?**
+
+* **What is Unidirectional data flow?**
 
 **Answer:** **Unidirectional data flow** is a design where events flow *up* and state flows *down*.
 
